@@ -1,0 +1,41 @@
+extend-exclude = ["tests", "example.py"]
+
+[format]
+quote-style = "single"
+
+[lint]
+select = ["ALL"]
+ignore = [
+    "ANN002",  # Missing type annotation for `*args`
+    "ANN003",  # Missing type annotation for `**kwargs`
+    "ANN401",  # typing.Any is disallowed
+    "D100",    # Missing docstring in public module
+    "D101",    # Missing docstring in public class
+    "D102",    # Missing docstring in public method
+    "D103",    # Missing docstring in public function
+    "D104",    # Missing docstring in public package
+    "D105",    # Missing docstring in magic method
+    "D106",    # Missing docstring in public nested class
+    "D107",    # Missing docstring in `__init__`
+    "D203",    # 1 blank line required before class docstring
+    "D213",    # Multi-line docstring summary should start at the second line
+    "E501",    # Line too long
+    "FA100",   # Add `from __future__ import annotations`
+    "FA102",   # Missing `from __future__ import annotations`
+    "FBT001",  # Boolean-typed positional argument in function definition
+    "FBT002",  # Boolean default positional argument in function definition
+    "PERF203", # try-except within a loop incurs performance overhead
+    "PGH003",  # Use specific rule codes when ignoring type issues
+    "PLR0913", # Too many arguments in function definition
+    "PTH123",  # `open()` should be replaced by `Path.open()`
+    "S311",    # Standard pseudo-random generators are not suitable for security/cryptographic purposes
+    "T201",    # `print` found
+    "TC006",   # Add quotes to type expression in `typing.cast()`
+    "TD002",   # Missing author in TODO
+    "TD003",   # Missing issue link for this TODO
+    "FIX001",  # Line contains FIXME, consider resolving the issue
+    "FIX002",  # Line contains TODO, consider resolving the issue
+]
+
+[lint.flake8-quotes]
+inline-quotes = "single"
