@@ -1,9 +1,30 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "simple-result"
-version = "0.1.0"
-description = "A simple Rust-like Result type for Python."
+dynamic = ["version"]
+authors = [{ name = "Dairo Mosquera", email = "dairoandres115@outlook.com" }]
+description = "A very simple, fully typed Rust-like Result type for Python 3."
 readme = "README.md"
 requires-python = ">=3.10"
+keywords = [
+    "result",
+    "result-pattern",
+    "rust-like",
+    "python",
+]
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+]
 dependencies = []
 
 [dependency-groups]
@@ -11,4 +32,33 @@ dev = [
     "coverage==7.11.3",
     "pytest==9.0.1",
     "ruff==0.14.5",
+]
+
+[project.urls]
+Homepage = "https://github.com/daireto/odata-v4-query"
+Issues = "https://github.com/daireto/odata-v4-query/issues"
+Repository = "https://github.com/daireto/odata-v4-query"
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.setuptools.packages.find]
+include = ["simple_result*"]
+exclude = ["tests*"]
+
+[tool.setuptools.dynamic]
+version = { attr = "simple_result.__version__" }
+
+[tool.coverage.run]
+omit = ["tests/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "@abstractmethod",
 ]
