@@ -35,9 +35,9 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/daireto/odata-v4-query"
-Issues = "https://github.com/daireto/odata-v4-query/issues"
-Repository = "https://github.com/daireto/odata-v4-query"
+Homepage = "https://github.com/daireto/simple-result"
+Issues = "https://github.com/daireto/simple-result/issues"
+Repository = "https://github.com/daireto/simple-result"
 
 [tool.setuptools]
 include-package-data = false
