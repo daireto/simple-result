@@ -1,8 +1,25 @@
 # simple-result
 
+<p align="center">
+    <a href="https://pypi.org/project/simple-result" target="_blank">
+        <img src="https://img.shields.io/pypi/pyversions/simple-result" alt="Supported Python versions">
+    </a>
+    <a href="https://pypi.org/project/simple-result" target="_blank">
+        <img src="https://img.shields.io/pypi/v/simple-result" alt="Package version">
+    </a>
+    <a href="https://github.com/daireto/simple-result/actions" target="_blank">
+        <img src="https://github.com/daireto/simple-result/actions/workflows/publish.yml/badge.svg" alt="Publish">
+    </a>
+    <a href="/LICENSE" target="_blank">
+        <img src="https://img.shields.io/badge/License-MIT-green" alt="License">
+    </a>
+</p>
+
 A very simple, fully typed Rust-like Result type for Python 3.
 
-If you need a Result type only for checking if an operation succeeded or failed, and don't need to perform special actions like chaining operations, mapping, etc., then this library is for you.
+If you need a Result type only for checking if an operation succeeded or failed,
+and don't need to perform special actions like chaining operations, mapping, etc.,
+then this library is for you.
 
 If you are looking for a more feature-rich Result type, check out
 [rustedpy/result](https://github.com/rustedpy/result).
