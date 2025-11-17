@@ -14,21 +14,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         persist-credentials: false
+
     - name: Set up Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v6
       with:
-        python-version: "3.x"
+        python-version-file: .python-version
+
     - name: Install pypa/build
       run: >-
         python3 -m
         pip install
         build
         --user
+
     - name: Build a binary wheel and a source tarball
       run: python3 -m build
+
     - name: Store the distribution packages
       uses: actions/upload-artifact@v4
       with:
@@ -54,6 +58,7 @@ jobs:
       with:
         name: python-package-distributions
         path: dist/
+
     - name: Publish distribution to TestPyPI
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
