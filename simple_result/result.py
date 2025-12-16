@@ -62,6 +62,10 @@ class Ok(_Option, Generic[T_co]):
     def error(self) -> None:
         return None
 
+    @property
+    def code(self) -> int:
+        return 0
+
     def unwrap_value(self) -> T_co:
         """Return the value."""
         return self._value
@@ -77,11 +81,12 @@ class Ok(_Option, Generic[T_co]):
 class Err(_Option, Generic[E_co]):
     """A value that signifies failure."""
 
-    __match_args__ = ('error',)
-    __slots__ = ('_value',)
+    __match_args__ = ('error', 'code')
+    __slots__ = ('_code', '_value')
 
-    def __init__(self, error: E_co) -> None:
+    def __init__(self, error: E_co, code: int = 1) -> None:
         self._value = error
+        self._code = code
 
     def __repr__(self) -> str:
         return f'Err({self._value!r})'
@@ -106,6 +111,11 @@ class Err(_Option, Generic[E_co]):
     def error(self) -> E_co:
         """Return the error."""
         return self._value
+
+    @property
+    def code(self) -> int:
+        """Return the error code."""
+        return self._code
 
     def unwrap_value(self) -> None:
         """Raise an UnwrapError since this type is Err."""
