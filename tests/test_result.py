@@ -33,6 +33,9 @@ class TestOk:
     def test_error_property_returns_none(self):
         assert Ok(1).error is None
 
+    def test_code_property_returns_zero(self):
+        assert Ok(1).code == 0
+
     def test_unwrap_value_returns_value(self):
         assert Ok(1).unwrap_value() == 1
 
@@ -78,6 +81,12 @@ class TestErr:
     def test_error_property_returns_error(self):
         exc = ValueError('error message')
         assert Err(exc).error is exc
+
+    def test_code_property_returns_one_by_default(self):
+        assert Err(ValueError('error message')).code == 1
+
+    def test_code_property_returns_custom_code(self):
+        assert Err(ValueError('error message'), code=2).code == 2
 
     def test_unwrap_value_raises_unwrap_error(self):
         with pytest.raises(UnwrapError):
