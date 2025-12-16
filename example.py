@@ -31,6 +31,16 @@ def using_match() -> None:
             print(error) # "Error fetching data!"
 
 
+def using_match_with_code() -> None:
+    print('Using match with code')
+    match fetch_data():
+        case Ok(data):
+            print(data) # "Data fetched!"
+        case Err(error, code):
+            print(error, code) # "Error fetching data! 1"
+
+
 if __name__ == '__main__':
     using_type_narrowing()
     using_match()
+    using_match_with_code()
