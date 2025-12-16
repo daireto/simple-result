@@ -70,6 +70,12 @@ match fetch_data():
         print(data) # "Data fetched!"
     case Err(error):
         print(error) # "Error fetching data!"
+
+match fetch_data():
+    case Ok(data):
+        print(data) # "Data fetched!"
+    case Err(error, code):
+        print(error, code) # "Error fetching data! 1"
 ```
 
 Call `.unwrap_value()` to get the value or raise an `UnwrapError` if the result
